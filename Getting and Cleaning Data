@@ -1,0 +1,55 @@
+setwd("/Users/george/Documents/R work/Getting and Cleaning Data")
+getwd()
+
+housing <- read.csv("getdata-data-ss06hid.csv", header = T)
+h.type.val <- subset(housing, TYPE == 1 & VAL == 24)
+VAL = 24
+nrow(h.type.val)
+
+library(xlsx)
+dat <- read.xlsx("getdata-data-DATA.gov_NGAP.xlsx", sheetName = "NGAP Sample Data" ,rowIndex = 18:23, colIndex = 7:15)
+sum(dat$Zip*dat$Ext,na.rm=T) 
+
+install.packages("XML")
+library(XML)
+fileUrl <- "getdata%2Fdata%2Frestaurants.xml"
+doc <- xmlTreeParse(fileUrl, useInternalNodes = TRUE)
+rootNode <- xmlRoot(doc)
+xmlName(rootNode)
+xpathSApply(rootNode,"//zipcode", xmlValue)
+length(xpathSApply(rootNode,"//zipcode", xmlValue))
+mzip <- c(xpathSApply(rootNode,"//zipcode", xmlValue))
+s.zip <- subset(mzip, mzip == 21231)
+length(s.zip)
+
+data <- read.csv("getdata-data-ss06pid.csv", header = T)
+install.packages("data.table")
+library(data.table)
+
+system.time()
+mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)
+rowMeans(DT)[DT$SEX==1]; rowMeans(DT)[DT$SEX==2] #not good
+sapply(split(DT$pwgtp15,DT$SEX),mean)
+DT[,mean(pwgtp15),by=SEX] #the fastest
+tapply(DT$pwgtp15,DT$SEX,mean)
+mean(DT$pwgtp15,by=DT$SEX) #not good
+
+install.packages("sqldf")
+library(sqldf)
+
+acs <- read.csv("getdata-data-ss06pid.csv", header = T)
+
+head(sqldf("select pwgtp1 from acs"))
+head(sqldf("select * from acs"))
+head(sqldf("select pwgtp1 from acs where AGEP < 50"))
+unique(acs$AGEP)
+sqldf("select distinct AGEP from acs")
+
+con = url("http://biostat.jhsph.edu/~jleek/contact.html")
+htmlCode = readLines(con)
+close(con)
+htmlCode
+nchar(htmlCode)[c(10, 20, 30, 100)]
+
+sst <- read.fwf("getdata-wksst8110.for", skip = 4, widths=c(12, 7,4, 9,4, 9,4, 9,4))
+sum(sst[, 4])
