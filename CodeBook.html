@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>code book </title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>code book </h1>
+
+<h1>CodeBook.md describes the variables, the data, and any transformations or work that I have  performed to clean up the data</h1>
+
+<h1>Source:</h1>
+
+<h1>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.</h1>
+
+<h1>Smartlab - Non Linear Complex Systems Laboratory</h1>
+
+<h1>DITEN - UniversitÃ  degli Studi di Genova, Genoa I-16145, Italy.</h1>
+
+<h1>activityrecognition &#39;@&#39; smartlab.ws</h1>
+
+<h1><a href="http://www.smartlab.ws">www.smartlab.ws</a></h1>
+
+<h1>Data Set Information:</h1>
+
+<h1>The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.</h1>
+
+<h1>The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.</h1>
+
+<h1>Check the README.md file for further details about this dataset.</h1>
+
+<h1>Attribute Information:</h1>
+
+<h1>For each record in the dataset it is provided:</h1>
+
+<h1>- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</h1>
+
+<h1>- Triaxial Angular velocity from the gyroscope.</h1>
+
+<h1>- A 561-feature vector with time and frequency domain variables.</h1>
+
+<h1>- Its activity label.</h1>
+
+<h1>- An identifier of the subject who carried out the experiment.</h1>
+
+<h1>Activity labels:</h1>
+
+<h1>1 WALKING</h1>
+
+<h1>2 WALKING_UPSTAIRS</h1>
+
+<h1>3 WALKING_DOWNSTAIRS</h1>
+
+<h1>4 SITTING</h1>
+
+<h1>5 STANDING</h1>
+
+<h1>6 LAYING</h1>
+
+<h2>feature vector, variables:</h2>
+
+<p>#1 tBodyAcc-mean()-X
+#2 tBodyAcc-mean()-Y
+#3 tBodyAcc-mean()-Z
+#4 tBodyAcc-std()-X
+#5 tBodyAcc-std()-Y
+#6 tBodyAcc-std()-Z
+#7 tBodyAcc-mad()-X
+#8 tBodyAcc-mad()-Y
+#9 tBodyAcc-mad()-Z
+#10 tBodyAcc-max()-X
+#11 tBodyAcc-max()-Y
+#12 tBodyAcc-max()-Z
+#13 tBodyAcc-min()-X
+#14 tBodyAcc-min()-Y
+#15 tBodyAcc-min()-Z
+#16 tBodyAcc-sma()
+#17 tBodyAcc-energy()-X
+#18 tBodyAcc-energy()-Y</p>
+
+<h1>and so on &hellip;</h1>
+
+<p>#511 fBodyAccMag-entropy()
+#512 fBodyAccMag-maxInds
+#513 fBodyAccMag-meanFreq()
+#514 fBodyAccMag-skewness()
+#515 fBodyAccMag-kurtosis()
+#516 fBodyBodyAccJerkMag-mean()
+#517 fBodyBodyAccJerkMag-std()
+#518 fBodyBodyAccJerkMag-mad()
+#519 fBodyBodyAccJerkMag-max()
+#520 fBodyBodyAccJerkMag-min()
+#521 fBodyBodyAccJerkMag-sma()
+#522 fBodyBodyAccJerkMag-energy()
+#523 fBodyBodyAccJerkMag-iqr()
+#524 fBodyBodyAccJerkMag-entropy()
+#525 fBodyBodyAccJerkMag-maxInds</p>
+
+<h2>&hellip;</h2>
+
+<p>#560 angle(Y,gravityMean)
+#561 angle(Z,gravityMean)</p>
+
+<h2>complete list could be found in feature.txt</h2>
+
+<h1>Data cleaning and transformation is decribed in README.md, I will only briefly repeat</h1>
+
+<h1>some of the information:</h1>
+
+<h2>download data from</h2>
+
+<h2><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></h2>
+
+<h2>unzip it at your working directory</h2>
+
+<h2>it will create directoy called &ldquo;UCI HAR Dataset&rdquo;</h2>
+
+<h2>in that directory there are two other directories: &ldquo;test&rdquo; and &ldquo;train&rdquo;,</h2>
+
+<h2>as well as labels of variour columns of the data in txt files</h2>
+
+<h2>create a data frame &ldquo;subject&rdquo; by reading subject_test.txt, which has rows of a subject&#39;s number,</h2>
+
+<h2>and name the column &ldquo;subject&rdquo;</h2>
+
+<h2>create a data frame &ldquo;activity&rdquo; by reading y_test.txt, which has rows of an activity&#39;s number,</h2>
+
+<h2>and name the column &ldquo;activity&rdquo;</h2>
+
+<h2>change the numbers in activity data frame into textual activities listed in &ldquo;activity_labels.txt&rdquo;</h2>
+
+<h2>merge two data frames into one (subject and activity into dat1)</h2>
+
+<h2>read X_test data with 561 columns</h2>
+
+<h2>get the names of the features (which will be column names of X_test data)</h2>
+
+<h1>rows should be columns, so we will transpose rows and columns, and get just the names of the features</h1>
+
+<h2>rename the columns of X_test data with the column names of the features from features.txt</h2>
+
+<h2>get the index of columns that have &ldquo;mean()&rdquo; in them, and also &ldquo;meanFreq()</h2>
+
+<h2>get the index of columns that have &quot;std()&rdquo; in them</h2>
+
+<h2>combine those indices into one</h2>
+
+<h2>sort the indices</h2>
+
+<h2>these are the indices we need in our data</h2>
+
+<h2>the data set with columns of needed data of mean, and std computations</h2>
+
+<h2>merge subject + activity (dat1), and X_test_mean_std</h2>
+
+<h2>just to check the final result: nrow(X_test_merged) gives me 2947,</h2>
+
+<h2>ncol(X_test_merged) gives me 81, so the test merged data frame is 2947 x 81</h2>
+
+<h2>Do the same for the train data</h2>
+
+<h2>just to check the final result: nrow(X_train_merged) gives me 7352,</h2>
+
+<h2>ncol(X_train_merged) gives me 81, so the train merged data frame is 7352 x 81</h2>
+
+<h2>merging the test and the training sets should give me (2947 + 7352) x 81 data frame</h2>
+
+<h2>i.e. 10299 x 81</h2>
+
+<h2>nrow(X_final) gives me 10299, which is as expected, ncol(X_final) is 81 as well</h2>
+
+<h2>empty data frame for tidy data for future storage there</h2>
+
+<h1>the data is split by subject, activity, and other variables, so it computes</h1>
+
+<h1>the mean of each variable for each subject and his/her activity,</h1>
+
+<h1>e.g. subject 1, activity 1, all means of variables; subject 2, activity 1, means,</h1>
+
+<h1>up to last subject, activity 1</h1>
+
+<h1>then, it starts with subject 1, activity 2 &hellip;, last s, act 2 and so on</h1>
+
+<h1>nrow(X_tidy) = 79, ncol(X_tidy) = 180</h1>
+
+<h1>output with row.names=F so the data is properly aligned in MS Excel, but the row names</h1>
+
+<h1>are, of course, missing</h1>
+
+<h1>output with row.names=T so the data is NOT properly aligned in MS Excel</h1>
+
+</body>
+
+</html>
+

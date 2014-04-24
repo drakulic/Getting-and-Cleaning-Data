@@ -53,3 +53,13 @@ nchar(htmlCode)[c(10, 20, 30, 100)]
 
 sst <- read.fwf("getdata-wksst8110.for", skip = 4, widths=c(12, 7,4, 9,4, 9,4, 9,4))
 sum(sst[, 4])
+
+Set up a new repo on github, being sure to tick the add ReadMe option.
+Create a folder on your computer and activate it with Git. I don't know the easiest way on Windows but on a *nix system, you command line into the folder and issue the command git init
+Get the local folder connected with the github one with (on *nix, still in the same folder in the command line) git remote add origin https://github.com/yourUsername/yourRepo.git
+draw down the files from github with the command git pull origin master
+Now use a text editor to update the ReadMe and put the other files for the project in the same folder
+
+let the local repo know about changes in files to watch with the command git add -A
+sync the local repo with a command similar (the comment can vary) to git commit -m "testing initial setup and update"
+push the local changes to github with the command git push
